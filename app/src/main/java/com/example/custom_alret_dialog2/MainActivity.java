@@ -1,7 +1,9 @@
 package com.example.custom_alret_dialog2;
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
@@ -28,6 +30,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
     double kefel=0;
     double x12=0;
+    int num = 1 ;
 
     double sum= 0 ;
     int position =0;
@@ -58,6 +61,12 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         data_list.setOnItemClickListener(this);
 
         adapter = new ArrayAdapter<>(this, androidx.appcompat.R.layout.support_simple_spinner_dropdown_item, arr);
+    }
+
+
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.main, menu);
+        return super.onCreateOptionsMenu(menu);
     }
 
     public void handsit(View view)
@@ -150,6 +159,29 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         }
         Sn.setText("Sn= " + arr[pos]);
         }
+
+    public boolean onOptionsItemSelected(MenuItem menu)
+    {
+        String num1 = menu.getTitle().toString();
+        if(num1.equals("home"))
+        {
+            if(num ==1 )
+            {
+
+            }
+            else
+                finish();
+        }
+        else
+        {
+            Intent si = new Intent(this, Page2.class);
+            startActivity(si);
+
+        }
+
+        return super.onOptionsItemSelected(menu);
+
+    }
 
     public  String bigNumSimplifier(double result) {
         String scientificNotation = String.format("%.4e", result);
