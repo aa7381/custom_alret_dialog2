@@ -21,7 +21,6 @@ public class Page2 extends AppCompatActivity {
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_page2);
-        button = findViewById(R.id.button);
     }
 
     public boolean onCreateOptionsMenu(Menu menu) {
